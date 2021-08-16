@@ -7,7 +7,6 @@ Name:       nethogs
 
 # >> macros
 # << macros
-%define __requires_exclude ^libncurses|libpcap|libstdc++|libtinfo.*$
 
 Summary:    a small 'net top' tool
 Version:    0.8.6
@@ -25,9 +24,6 @@ Source6:    files/%{name}_172.png
 Source7:    files/%{name}_256.png
 Source8:    files/%{name}_512.png
 Source100:  nethogs.yaml
-Requires:   libpcap
-Requires:   ncurses-libs
-Requires:   libstdc++
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libpcap-devel
 BuildRequires:  gcc-c++

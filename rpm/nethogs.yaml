@@ -24,12 +24,12 @@ Description: |
     suddenly a lot of network traffic, you can fire up NetHogs and immediately see
     which PID is causing this. This makes it easy to indentify programs that have
     gone wild and are suddenly taking up your bandwidth.
-Macros:
-  - '__requires_exclude;^libncurses|libpcap|libstdc++|libtinfo.*$'
-Requires:
-    - libpcap
-    - ncurses-libs
-    - libstdc++
+#Macros:
+#  - '__requires_exclude;^libncurses|libpcap|libstdc++|libtinfo.*$'
+#Requires:
+#    - libpcap
+#    - ncurses-libs
+#    - libstdc++
 PkgBR:
     - libpcap-devel
     - gcc-c++
