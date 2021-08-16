@@ -8,6 +8,15 @@ URL: https://github.com/raboof/nethogs
 SCM: https://github.com/raboof/nethogs
 Sources:
     - 'https://github.com/raboof/nethogs/archive/%{name}-%{version}.tar.gz'
+    - 'files/%{name}.desktop'
+    - 'files/%{name}.svgz'
+    - 'files/%{name}_86.png'
+    - 'files/%{name}_108.png'
+    - 'files/%{name}_128.png'
+    - 'files/%{name}_172.png'
+    - 'files/%{name}_256.png'
+    - 'files/%{name}_512.png'
+
 Description: |
     NetHogs is a small 'net top' tool. Instead of breaking the traffic down per
     protocol or per subnet, like most tools do, it groups bandwidth by process.

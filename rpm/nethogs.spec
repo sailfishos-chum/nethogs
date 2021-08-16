@@ -16,6 +16,14 @@ Group:      Applications/Internet
 License:    GPL
 URL:        https://github.com/raboof/nethogs
 Source0:    https://github.com/raboof/nethogs/archive/%{name}-%{version}.tar.gz
+Source1:    files/%{name}.desktop
+Source2:    files/%{name}.svgz
+Source3:    files/%{name}_86.png
+Source4:    files/%{name}_108.png
+Source5:    files/%{name}_128.png
+Source6:    files/%{name}_172.png
+Source7:    files/%{name}_256.png
+Source8:    files/%{name}_512.png
 Source100:  nethogs.yaml
 Requires:   libpcap
 Requires:   ncurses-libs
@@ -49,7 +57,7 @@ gone wild and are suddenly taking up your bandwidth.
 
 
 # >> build post
-make %{?_smp_mflags} -s -l4.8 nethogs
+make %{?_smp_mflags} nethogs
 # << build post
 
 %install
@@ -59,14 +67,16 @@ rm -rf %{buildroot}
 
 # >> install post
 %{__make} install PREFIX="%{buildroot}"/usr
-%{__install} -p -D -m 644 files/%{name}.desktop $RPM_BUILD_ROOT/%{_datadir}/applications/%{name}.desktop
-for s in 86 108 128 172 256 512; do
-%{__install} -p -D -m 644 files/%{name}_${s}.png $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/${s}x${s}/apps/%{name}.png
-done
-%{__install} -p -D -m 644 files/%{name}.svgz $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/scalable/apps/%{name}.svgz
-# do not install man:
-rm -r $RPM_BUILD_ROOT/%{_datadir}/man
-
+%{__install} -p -D -m 644 %SOURCE1 %{buildroot}%{_datadir}/applications/%{name}.desktop
+%{__install} -p -D -m 644 %SOURCE2 %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svgz
+%{__install} -p -D -m 644 %SOURCE3 %{buildroot}%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
+%{__install} -p -D -m 644 %SOURCE4 %{buildroot}%{_datadir}/icons/hicolor/108x108/apps/%{name}.png
+%{__install} -p -D -m 644 %SOURCE5 %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
+%{__install} -p -D -m 644 %SOURCE6 %{buildroot}%{_datadir}/icons/hicolor/172x172/apps/%{name}.png
+%{__install} -p -D -m 644 %SOURCE7 %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/%{name}.png
+%{__install} -p -D -m 644 %SOURCE8 %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/%{name}.png
+# disable man pages
+rm -rf %{buildroot}%{_mandir}
 # << install post
 
 desktop-file-install --delete-original       \
