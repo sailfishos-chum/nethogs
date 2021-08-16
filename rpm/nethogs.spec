@@ -13,7 +13,7 @@ Summary:    a small 'net top' tool
 Version:    0.8.6
 Release:    5
 Group:      Applications/Internet
-License:    GPL
+License:    GPLv2
 URL:        https://github.com/raboof/nethogs
 Source0:    https://github.com/raboof/nethogs/archive/%{name}-%{version}.tar.gz
 Source1:    files/%{name}.desktop
