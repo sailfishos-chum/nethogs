@@ -39,6 +39,16 @@ suddenly a lot of network traffic, you can fire up NetHogs and immediately see
 which PID is causing this. This makes it easy to indentify programs that have
 gone wild and are suddenly taking up your bandwidth.
 
+%if "%{?vendor}" == "chum"
+Type: console-application
+DeveloperName: nephros
+Categories:
+ - Network
+ - Utility
+ - System
+Icon: https://gitlab.com/nephros/openrepos-nethogs/-/blob/obs/rpm/nethogs_512.png
+%endif
+
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
