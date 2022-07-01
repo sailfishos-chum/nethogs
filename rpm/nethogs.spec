@@ -10,7 +10,7 @@ Name:       nethogs
 
 Summary:    a small 'net top' tool
 Version:    0.8.6
-Release:    5
+Release:    6
 Group:      Applications/Internet
 License:    GPLv2
 URL:        https://github.com/raboof/nethogs
@@ -41,12 +41,14 @@ gone wild and are suddenly taking up your bandwidth.
 
 %if "%{?vendor}" == "chum"
 Type: console-application
-DeveloperName: nephros
+PackagerName: nephros
 Categories:
  - Network
  - Utility
- - System
-Icon: https://gitlab.com/nephros/openrepos-nethogs/-/blob/obs/rpm/nethogs_512.png
+Custom:
+  PackagingRepo: https://github.com/sailfishos-chum/nethogs
+  Repo: https://github.com/raboof/nethogs
+Icon: https://github.com/sailfishos-chum/nethogs/raw/legacy/rpm/nethogs_256.png
 %endif
 
 
