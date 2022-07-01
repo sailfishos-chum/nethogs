@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Nethogs
+Icon=openrepos-nethogs
+Exec=invoker --type=generic sh -c "LANG=en_GB.UTF8 exec fingerterm -e nethogs"
+Categories=ConsoleOnly;System;Network;
+Keywords=system;network

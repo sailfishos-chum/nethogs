@@ -1,0 +1,43 @@
+Name: nethogs
+Summary: a small 'net top' tool
+Group: Applications/Internet
+Version: 0.8.6
+Release: 5
+License: GPL
+URL: https://github.com/raboof/nethogs
+SCM: https://github.com/raboof/nethogs
+Sources:
+    - 'https://github.com/raboof/nethogs/archive/%{name}-%{version}.tar.gz'
+Description: |
+    NetHogs is a small 'net top' tool. Instead of breaking the traffic down per
+    protocol or per subnet, like most tools do, it groups bandwidth by process.
+    NetHogs does not rely on a special kernel module to be loaded. If there's
+    suddenly a lot of network traffic, you can fire up NetHogs and immediately see
+    which PID is causing this. This makes it easy to indentify programs that have
+    gone wild and are suddenly taking up your bandwidth.
+Macros:
+  - '__requires_exclude;^libncurses|libpcap|libstdc++|libtinfo.*$'
+Requires:
+    - libpcap
+    - ncurses-libs
+    - libstdc++
+PkgBR:
+    - libpcap-devel
+    - gcc-c++
+PkgConfigBR:
+    - ncurses
+Obsoletes:
+    - nethogs <= 0.8.1
+    - openrepos-nethogs <= %{version}
+SetupOptions: '-q -n %{name}-%{version}/upstream'
+NoIconCache: true
+Configure: none
+Builder: none
+Files:
+    - "%defattr(-, root, root, 0755)"
+    - "%license COPYING"
+    - "%{_sbindir}/nethogs"
+    - "%defattr(-, root, root, 0644)"
+    - "%{_datadir}/icons/hicolor/*/apps/%{name}.png"
+    - "%{_datadir}/icons/hicolor/scalable/apps/%{name}.svgz"
+    - "%{_datadir}/applications/%{name}.desktop"

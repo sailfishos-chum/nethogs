@@ -1,0 +1,12 @@
+* Mon Apr 12 2021 Nephros <sailfish@nephros.org> - 0.8.6-5
+- move to OBS/chum
+
+* Mon Jul 19 2021 Nephros <sailfish@nephros.org> - 0.8.6-4
+- improved icon
+
+* Sat Apr 24 2021 Nephros <sailfish@nephros.org> - 0.8.6-3
+- move to spec+yaml build
+- add other archs
+
+* Sat Mar 28 2020 Nephros <sailfish@nephros.org> - 0.8.6
+- Package latest from github for sailfishOS
