@@ -26,7 +26,7 @@ Source8:    files/%{name}_512.png
 Source100:  nethogs.yaml
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libpcap-devel
-BuildRequires:  gcc-c++
+BuildRequires:  gcc-c++ >= 8.0
 BuildRequires:  desktop-file-utils
 Obsoletes:   nethogs <= 0.8.1
 Obsoletes:   openrepos-nethogs <= %{version}

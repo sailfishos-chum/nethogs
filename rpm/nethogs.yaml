@@ -45,7 +45,7 @@ Description: |
 #    - libstdc++
 PkgBR:
     - libpcap-devel
-    - gcc-c++
+    - gcc-c++ >= 8.0
 PkgConfigBR:
     - ncurses
 Obsoletes:
