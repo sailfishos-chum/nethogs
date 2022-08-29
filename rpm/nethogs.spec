@@ -9,8 +9,8 @@ Name:       nethogs
 # << macros
 
 Summary:    a small 'net top' tool
-Version:    0.8.6
-Release:    6
+Version:    0.8.7
+Release:    1
 Group:      Applications/Internet
 License:    GPLv2
 URL:        https://github.com/raboof/nethogs
