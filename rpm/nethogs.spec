@@ -24,6 +24,7 @@ Source6:    files/%{name}_172.png
 Source7:    files/%{name}_256.png
 Source8:    files/%{name}_512.png
 Source100:  nethogs.yaml
+Requires(post): libpcap
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libpcap-devel
 BuildRequires:  gcc-c++ >= 8.0
@@ -40,6 +41,9 @@ which PID is causing this. This makes it easy to indentify programs that have
 gone wild and are suddenly taking up your bandwidth.
 
 %if "%{?vendor}" == "chum"
+NOTICE: this package sets the cap_net_raw and cap_net_admin capabilities on
+the binary. This might be a security risk. Caveat Lector.
+
 Type: console-application
 PackagerName: nephros
 Categories:
@@ -91,9 +95,16 @@ desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
+%post
+# >> post
+if [ -x /usr/sbin/setcap ]; then
+setcap cap_net_raw+ep /usr/sbin/nethogs ||:
+setcap cap_net_admin+ep /usr/sbin/nethogs ||:
+fi
+# << post
+
 %files
 %defattr(-,root,root,-)
-%defattr(-, root, root, 0755)
 %license COPYING
 %{_sbindir}/nethogs
 %defattr(-, root, root, 0644)

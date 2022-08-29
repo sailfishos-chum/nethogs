@@ -26,6 +26,9 @@ Description: |
     gone wild and are suddenly taking up your bandwidth.
 
     %if "%{?vendor}" == "chum"
+    NOTICE: this package sets the cap_net_raw and cap_net_admin capabilities on
+    the binary. This might be a security risk. Caveat Lector.
+
     Type: console-application
     PackagerName: nephros
     Categories:
@@ -39,6 +42,8 @@ Description: |
 
 #Macros:
 #  - '__requires_exclude;^libncurses|libpcap|libstdc++|libtinfo.*$'
+RequiresPost:
+    - libpcap
 #Requires:
 #    - libpcap
 #    - ncurses-libs
@@ -56,7 +61,6 @@ NoIconCache: true
 Configure: none
 Builder: none
 Files:
-    - "%defattr(-, root, root, 0755)"
     - "%license COPYING"
     - "%{_sbindir}/nethogs"
     - "%defattr(-, root, root, 0644)"
