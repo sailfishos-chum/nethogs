@@ -65,6 +65,8 @@ Icon: https://github.com/sailfishos-chum/nethogs/raw/legacy/rpm/nethogs_256.png
 
 
 # >> build post
+export CFLAGS="$RPM_OPT_FLAGS -fPIC -pie -std=c++11"
+export CXXFLAGS="$RPM_OPT_FLAGS -fPIC -pie -std=c++11"
 make %{?_smp_mflags} nethogs
 # << build post
 
